@@ -6,44 +6,41 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
-
+public class Pantalla2 extends AppCompatActivity {
     Toolbar toolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_pantalla2);
         toolbar = (Toolbar)findViewById(R.id.id_tb_toolbar);
-        showtoolbar(getResources().getString(R.string.str_tb_p1));
+        showtoolbar("Pantalla2",true);
     }
-    public void showtoolbar(String title){
 
+    public void showtoolbar(String title, boolean upBotton){
         //muestra el tooblar y configura pantalla
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upBotton);
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_pantalla_1,menu);
+        getMenuInflater().inflate(R.menu.menu2,menu);
         return super.onCreateOptionsMenu(menu);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        showPantalla2();
+        showPantalla1();
         return super.onOptionsItemSelected(item);
 
 
     }
-    public void showPantalla2() {
-        Intent Pantalla2 = new Intent(getApplicationContext(), Pantalla2.class);
-        startActivity(Pantalla2);
+    public void showPantalla1() {
+        Intent Pantalla1 = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(Pantalla1);
     }
+
 }
